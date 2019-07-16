@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <h1>Prochaines dates :</h1>
+        <div class="card-group row justify-content-center">
+            <!-- Card -->
+            <div class="date">
+                <mdb-card
+                    imageBackground="url('https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg')"
+                     *ngFor="let show of shows">
+
+                    <!-- Content -->
+                    <div class="date text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                        <div>
+                            <h5 class="white-text">
+                                <mdb-icon fas icon="hat-wizard"></mdb-icon>
+                                {{show.date | date :'shortDate'}}
+                            </h5>
+                            <h3 class="card-title pt-2"><strong>{{show.place}}</strong></h3>
+                            <p>{{show.name}}</p>
+                            <a mdbBtn color="pink" class="waves-light" mdbWavesEffect>
+                                <mdb-icon far icon="clone" class="left"></mdb-icon>
+                                Réservez
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Content -->
+                </mdb-card>
+            </div>
+            <!-- Card -->
+        </div>
+    </div>
+        <div class="row justify-content-center">
+        <p>GOOGLE MAP HERE</p>
+    </div>
+        <div class="row justify-content-center">
+        <h1>PERKS HERE
+        </h1>
+    </div>
+        <div class="row justify-content-center">
+        <H1>Découvrez nos artistes :</H1>
+    </div>
+<div class="row">
+    <div class="card-deck">
+        <!-- Card -->
+        <mdb-card *ngFor="let artist of artists" class="col-3">
+          <div class="view overlay waves-light" mdbWavesEffect>
+            <!-- Card img -->
+            <mdb-card-img src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap"></mdb-card-img>
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Card content-->
+          <mdb-card-body>
+            <!--Title-->
+            <mdb-card-title>
+              <h4>{{artist.name}}</h4>
+            </mdb-card-title>
+      
+            <!--Text-->
+            <mdb-card-text>{{artist.type}}
+            </mdb-card-text>
+      
+            <a href="#" mdbBtn color="primary" mdbWavesEffect>Button</a>
+          </mdb-card-body>
+        </mdb-card>
+      </div>
+</div>
+</div>
