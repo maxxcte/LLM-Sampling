@@ -1,5 +1,46 @@
 .view {
     background: url("https://cdn.pixabay.com/photo/2015/01/31/05/05/background-618226_960_720.png")no-repeat center center;
     background-size: cover;
-    height: 80vh;
+    height: 650px;
+}
+
+h2 {
+font-size: 40px;
+}
+
+h3 {
+    font-size: 30px;
+
+}
+
+h4 {
+    font-size: 25px;
+
+}
+
+.page-footer {
+    margin-top: 5%;
+}
+
+.roundButton {
+    -webkit-border-radius: 90px;
+    -moz-border-radius: 90px;
+border-radius: 90px;
+}
+
+
+.anniversaire {
+
+
+    font-family: 'Corben', cursive;
+
+
+}
+
+.buttonHome {
+    margin-top: 4%;
+}
+
+.titreTop {
+    margin-top: 5%;
 }

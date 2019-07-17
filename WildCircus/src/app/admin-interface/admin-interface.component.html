@@ -1,0 +1,96 @@
+<!-- Editable table -->
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Les artistes :</h3>
+  <div class="card-body">
+    <div id="table" class="table-editable">
+      <form class="form-inline">
+        <label for="name">Nom:</label>
+        <input type="text" id="name" placeholder="Entrer le nom" name="name">
+        <label for="type">Type:</label>
+        <input type="text" id="type" placeholder="Entrer le type" name="type">
+        <button type="submit">Ajouter</button>
+      </form>
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <tr>
+          <th class="text-center">Nom</th>
+          <th class="text-center">Type</th>
+        </tr>
+        <tr *ngFor="let artist of artists">
+          <td>
+            <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)"
+              contenteditable="true">{{artist.name}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'type', $event)"
+              (blur)="updateList(id, 'type', $event)">{{artist.type}}</span>
+          </td>
+          <td>
+            <span class="table-remove">
+              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0"
+                (click)="deleteShow()">Modifier</button>
+            </span>
+          </td>
+          <td>
+            <span class="table-remove">
+              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0"
+                (click)="deleteShow()">Supprimer</button>
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- Editable table -->
+
+<!-- Editable table -->
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Les shows :</h3>
+  <div class="card-body">
+    <div id="table" class="table-editable">
+        <form class="form-inline">
+            <label for="date">Date:</label>
+            <input type="text" id="date" placeholder="Entrer la date" name="date">
+            <label for="lieu">Lieux:</label>
+            <input type="text" id="lieu" placeholder="Entrer le lieu" name="lieu">
+            <label for="name">Nom:</label>
+            <input type="text" id="name" placeholder="Entrer le nom" name="name">
+            <button type="submit">Ajouter</button>
+          </form>
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <tr>
+          <th class="text-center">Date</th>
+          <th class="text-center">Lieu</th>
+          <th class="text-center">Nom</th>
+        </tr>
+        <tr *ngFor="let show of shows">
+          <td>
+            <span (keyup)="changeValue(id, 'date', $event)" (blur)="updateList(id, 'date', $event)"
+              contenteditable="true">{{show.date | date :'shortDate'}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'place', $event)"
+              (blur)="updateList(id, 'place', $event)">{{show.place}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'name', $event)"
+              (blur)="updateList(id, 'name', $event)">{{show.name}}</span>
+          </td>
+          <td>
+            <span class="table-remove">
+              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0"
+                (click)="remove(id)">Modifier</button>
+            </span>
+          </td>
+          <td>
+            <span class="table-remove">
+              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0"
+                (click)="remove(id)">Supprimer</button>
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- Editable table -->

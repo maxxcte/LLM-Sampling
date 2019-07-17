@@ -1,12 +1,38 @@
+<!--Main Layout-->
+<main class="text-center py-5">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <p align="justify" class="intro">Le Cirque la Compagnie est une cirque Franco-Suisse créée en 2014. Ses
+                    cofondateurs se sont
+                    rencontrés et formés à l'Ecole de Cirque de Montréal.
+                    Leurs créations prônent les valeurs du cirque en collectif où l'entraide et le partage sont des
+                    valeurs
+                    fondatrices. L'acrobatie et le risque sont leurs axes de travail principaux. La première création de
+                    la
+                    compagnie est le numéro "Planche-Mat", médaillé d'or au Festival Mondial du Cirque de Demain en
+                    2017. La
+                    compagnie se démarque par sa forte identité acrobatique, son humour, sa virtuosité technique, les
+                    limites
+                    qu’ils ont envie de pousser et leur créativité.</p>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+<!--Main Layout-->
+
 <div class="container">
     <div class="row justify-content-center">
-        <h1>Prochaines dates :</h1>
-        <div class="card-group row justify-content-center">
+        <h1 class="anniversaire orangeColor">Prochaines dates :</h1>
+        <div class="card-group row justify-content-around">
             <!-- Card -->
-            <div class="date">
-                <mdb-card
-                    imageBackground="url('https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg')"
-                     *ngFor="let show of shows">
+            <div class="date" *ngFor="let show of shows" style="display: flex;">
+                <mdb-card class="date-card"
+                    imageBackground="url('https://media-cdn.tripadvisor.com/media/photo-s/10/77/8b/e8/caption.jpg')">
 
                     <!-- Content -->
                     <div class="date text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
@@ -17,7 +43,7 @@
                             </h5>
                             <h3 class="card-title pt-2"><strong>{{show.place}}</strong></h3>
                             <p>{{show.name}}</p>
-                            <a mdbBtn color="pink" class="waves-light" mdbWavesEffect>
+                            <a mdbBtn class="waves-light roundButton" color="deep-orange" mdbWavesEffect>
                                 <mdb-icon far icon="clone" class="left"></mdb-icon>
                                 Réservez
                             </a>
@@ -29,41 +55,69 @@
             <!-- Card -->
         </div>
     </div>
-        <div class="row justify-content-center">
-        <p>GOOGLE MAP HERE</p>
+    <div class="row justify-content-center">
+        <!-- <p>GOOGLE MAP HERE</p> -->
+        <agm-map [latitude]="map.lat" [longitude]="map.lng" style="height: 100px">
+            <agm-marker [latitude]="map.lat" [longitude]="map.lng"></agm-marker>
+        </agm-map>
     </div>
-        <div class="row justify-content-center">
-        <h1>PERKS HERE
+</div>
+<div class="container-fluid perks">
+    <div class="row justify-content-center">
+        <h1 class="h1Artist anniversaire"> Wild Circus c'est :
         </h1>
     </div>
-        <div class="row justify-content-center">
-        <H1>Découvrez nos artistes :</H1>
+    <div class="row justify-content-center">
+        <div class="col align-self-center">
+            <i class="fas fa-hat-wizard fa-4x"></i>
+            <h4 class="h4Perks">10000 spectateurs conquis</h4>
+        </div>
+        <div class="col align-self-center">
+            <i class="fas fa-hat-wizard fa-4x"></i>
+            <h4 class="h4Perks">250 dates partout en France</h4>
+        </div>
+        <div class="col align-self-center">
+            <i class="fas fa-hat-wizard fa-4x"></i>
+            <h4 class="h4Perks">30 ans d'existence</h4>
+        </div>
     </div>
-<div class="row">
+</div>
+<div class="row justify-content-center">
+    <H1 class="h1Artist anniversaire orangeColor">Découvrez nos artistes :</H1>
+</div>
+<div class="row justify-content-center">
     <div class="card-deck">
         <!-- Card -->
-        <mdb-card *ngFor="let artist of artists" class="col-3">
-          <div class="view overlay waves-light" mdbWavesEffect>
-            <!-- Card img -->
-            <mdb-card-img src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap"></mdb-card-img>
-            <a>
-              <div class="mask rgba-white-slight"></div>
-            </a>
-          </div>
-          <!--Card content-->
-          <mdb-card-body>
-            <!--Title-->
-            <mdb-card-title>
-              <h4>{{artist.name}}</h4>
-            </mdb-card-title>
-      
-            <!--Text-->
-            <mdb-card-text>{{artist.type}}
-            </mdb-card-text>
-      
-            <a href="#" mdbBtn color="primary" mdbWavesEffect>Button</a>
-          </mdb-card-body>
+        <mdb-card *ngFor="let artist of artists">
+            <div class="view overlay waves-light" mdbWavesEffect>
+                <!-- Card img -->
+                <mdb-card-img src="{{artist.photo}}" alt="Card image cap"></mdb-card-img>
+                <a>
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+            <!--Card content-->
+            <mdb-card-body>
+                <!--Title-->
+                <mdb-card-title>
+                    <h4>{{artist.name}}</h4>
+                </mdb-card-title>
+                <!--Text-->
+                <mdb-card-text>
+                    <h4>
+                        <mdb-badge color="deep-orange">{{artist.type}}</mdb-badge>
+                    </h4>
+                </mdb-card-text>
+                <div class="socialIcone row" style="justify-content: center;">
+                    <a class="fb-ic icon">
+                        <mdb-icon fab icon="facebook" size="2x" color="deep-orange"></mdb-icon>
+                    </a>
+                    <!--Instagram-->
+                    <a class="ins-ic icon">
+                        <mdb-icon fab icon="instagram" size="2x" class="black-text"></mdb-icon>
+                    </a>
+                </div>
+            </mdb-card-body>
         </mdb-card>
-      </div>
-</div>
+    </div>
 </div>

@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <h1>Toutes les dates de la tournée :</h1>
+    </div>
+    <div class="card-deck">
+        <!-- Card -->
+        <mdb-card class="alignCardheigh date-card"
+            imageBackground="url('https://media-cdn.tripadvisor.com/media/photo-s/10/77/8b/e8/caption.jpg')"
+            *ngFor="let show of shows">
+
+            <!-- Content -->
+            <div class="alignCardheigh text-white text-center align-items-center rgba-black-strong">
+                <div>
+                    <h5 class="white-text">
+                        <mdb-icon fas icon="hat-wizard"></mdb-icon>
+                        {{show.date | date :'shortDate'}}
+                    </h5>
+                    <h3 class="card-title pt-2"><strong>{{show.place}}</strong></h3>
+                    <p>{{show.name}}</p>
+                    <a mdbBtn color="indigo" class="waves-light roundButton" mdbWavesEffect>
+                        <mdb-icon far icon="clone" class="left"></mdb-icon>
+                        Réservez
+                    </a>
+                </div>
+            </div>
+            <!-- Content -->
+        </mdb-card>
+        <!-- Card -->
+    </div>
+</div>

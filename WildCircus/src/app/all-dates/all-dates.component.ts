@@ -2,15 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from '../api-service.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-all-dates',
+  templateUrl: './all-dates.component.html',
+  styleUrls: ['./all-dates.component.scss']
 })
-export class HomeComponent implements OnInit {
-  
+export class AllDatesComponent implements OnInit {
   public artists;
   public shows;
-  public map: any = { lat: 51.678418, lng: 7.809007 };
 
   constructor(private _apiService: ApiServiceService) { }
 
@@ -28,12 +26,10 @@ getArtists() {
     }
 
     getShows() {
-      this._apiService.getShowsSoon().subscribe(
+      this._apiService.getShows().subscribe(
          data => { this.shows = data},
          err => console.error(err),
          () => console.log('done loading shows')
        );
      }
-
-
 }
