@@ -1,5 +1,5 @@
 transformers==4.33.2
-torch==2.0.1
+torch==2.7.0
 contexttimer
 flask
 transformers_stream_generator
